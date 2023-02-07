@@ -120,7 +120,7 @@ A: Cross section area
 L: Element length
 I: Moment of Inertia in out-of-plane axis
 """
-function K2DFrame2(E::Real, A::Real, L::Real, I::Real)
+function K2DFrame(E::Real, A::Real, L::Real, I::Real)
 
     k = E * I / L^3 .* [A*L^2/I 0 0 -A*L^2/I 0 0;
         0 12 6L 0 -12 6L;
@@ -186,5 +186,5 @@ function K2DFrame_FixedFree(E::Real, A::Real, L::Real)
     k[1, 1] = k[4, 4] = 1
     k[1, 4] = k[4, 1] = -1
 
-    return k
+    return E * A / L .* k
 end
