@@ -16,7 +16,7 @@ Premade local stiffness matrices, $k$, and transformation matrices $R$ in Julia 
 
 The stiffness matrix in global coordinates can be found by: $K_e = R^Tk_eR$.
 
-Matrices are directly from Aslam Kassimali's *Matrix Analysis of Structures* 2e, with one exception (see below).
+Matrices are directly from Aslam Kassimali's *Matrix Analysis of Structures* 2e, and have been tested to ensure proper transcription.
 
 Two methods are provided for each transformation matrix:
 
