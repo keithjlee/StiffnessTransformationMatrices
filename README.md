@@ -38,6 +38,6 @@ The transformation matrix for 3D frames uses the *pitch angle* approach, which d
 
 The pitch angle method sets a default orientation of the local coordinate system such that the local Y axis is parallel to the global XY plane, IE local Y has no component in the Global Z direction. This means that the local strong axis is not being used for loads applied in the global Z direction (e.g., gravity).
 
-To resolve this, a default pitch angle $\Psi = \pi/2$ is provided for all 3D frame transformation matrices to ensure that the local strong axis is always active for gravity loading. See figure below.
+To resolve this, a default pitch angle $\Psi = \pi/2$ is provided for all 3D frame transformation matrices to ensure that the local strong axis is always active for gravity loading. IE it's now the local Z axis (and associated Z Moment of Inertia, `Izz`) that is parallel to the XY ground plane. See figure below.
 
 ![](resources/LCS.png)
