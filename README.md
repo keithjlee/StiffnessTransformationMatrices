@@ -31,7 +31,7 @@ The second method calculates these cosines for you given a starting point, endin
 
 ## Some notes
 ### Member releases/fixed-end forces
-Member released stiffness matrices are provided for 2D and 3D trusses, but associated fixed-end force vectors are not. Only nodal loads will work when these matrices are directly applied to FEA.
+Member released stiffness matrices are provided for 2D and 3D frames, but associated fixed-end force vectors are not. Only nodal loads will work when these matrices are directly applied to FEA.
 
 ### Local coordinate system for 3D frames
 The transformation matrix for 3D frames uses the *pitch angle* approach, which determines the rotation of the local coordinate system about the local X axis. For reasons unknown to me, Kassimali (and others) take the XZ plane as the ground plane for matrix formulations; this causes headaches when trying to interface with common CAD programs where the XY plane is generally taken as the ground.
