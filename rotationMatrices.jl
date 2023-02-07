@@ -139,7 +139,7 @@ By default, Ψ = π/2, which ensures that the local Z axis is parallel to the XY
 function R3DFrame(positionStart::Vector{Real}, positionEnd::Vector{Real}, L::Real; Ψ = pi/2)
     
     xLocal = normalize(positionEnd .- positionStart)
-    Cx, Cy, Cz = xlocal
+    Cx, Cy, Cz = xLocal
 
     if norm(cross(xLocal, globalY)) < tol #special case for horizontal members aligned with global Y
         Λ = [0. Cy 0.;
