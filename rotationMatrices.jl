@@ -18,9 +18,9 @@ positionStart = [xstart, ystart]: position of starting node
 positionEnd = [xend, yend]: position of ending node
 L: length of element
 """
-function R2DTruss(positionStart::Vector{Real}, positionEnd::Vector{Real}, L::Real)
+function R2DTruss(positionStart::Vector{Real}, positionEnd::Vector{Real})
 
-    Cx, Cy = (positionEnd .- positionStart) ./ L
+    Cx, Cy = normalize(positionEnd .- positionStart)
 
     return [Cx Cy 0 0 ; 0 0 Cx Cy]
 end
@@ -43,9 +43,9 @@ positionStart = [xstart, ystart, zstart]: position of starting node
 positionEnd = [xend, yend, zend]: position of ending node
 L: length of element
 """
-function R2DTruss(positionStart::Vector{Real}, positionEnd::Vector{Real}, L::Real)
+function R3DTruss(positionStart::Vector{Real}, positionEnd::Vector{Real})
 
-    Cx, Cy, Cz = (positionEnd .- positionStart) ./ L
+    Cx, Cy, Cz = normalize(positionEnd .- positionStart)
 
     return [Cx Cy Cz 0 0 0; 0 0 0 Cx Cy Cz]
 end
@@ -78,9 +78,9 @@ positionStart = [xstart, ystart]: position of starting node
 positionEnd = [xend, yend]: position of ending node
 L: length of element
 """
-function R2DFrame(positionStart::Vector{Real}, positionEnd::Vector{Real}, L::Real)
+function R2DFrame(positionStart::Vector{Real}, positionEnd::Vector{Real})
     
-    Cx, Cy = (positionEnd .- positionStart) ./ L
+    Cx, Cy = normalize(positionEnd .- positionStart)
 
     R = [Cx Cy 0 0 0 0;
         -Cy Cx 0 0 0 0;
@@ -136,7 +136,7 @@ L: length of element
 Ψ is the roll angle of the element with respect to local x axis
 By default, Ψ = π/2, which ensures that the local Z axis is parallel to the XY ground plane, IE the strong axis is fully utilized under global gravity loading
 """
-function R3DFrame(positionStart::Vector{Real}, positionEnd::Vector{Real}, L::Real; Ψ = pi/2)
+function R3DFrame(positionStart::Vector{Real}, positionEnd::Vector{Real}; Ψ = pi/2)
     
     xLocal = normalize(positionEnd .- positionStart)
     Cx, Cy, Cz = xLocal
